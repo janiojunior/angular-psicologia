@@ -8,6 +8,7 @@ import { municipioResolver } from './components/municipio/resolver/municipio-res
 import { PacienteListComponent } from './components/paciente/paciente-list/paciente-list.component';
 import { PacienteFormComponent } from './components/paciente/paciente-form/paciente-form.component';
 import { pacienteResolver } from './components/paciente/resolver/paciente-resolver';
+import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
     { path: 'estados', component: EstadoListComponent, title: 'Lista de Estados'},
@@ -21,4 +22,6 @@ export const routes: Routes = [
     { path: 'pacientes', component: PacienteListComponent, title: 'Lista de Pacientes'},
     { path: 'pacientes/new', component: PacienteFormComponent, title: 'Novo Paciente'},
     { path: 'pacientes/edit/:id', component: PacienteFormComponent, resolve: {paciente: pacienteResolver}},
+
+    { path: 'login', component: LoginComponent, title: 'Login'},
 ];
