@@ -11,24 +11,43 @@ import { pacienteResolver } from './components/paciente/resolver/paciente-resolv
 import { LoginComponent } from './components/login/login.component';
 import { ConsultaCardListComponent } from './components/consulta-card-list/consulta-card-list.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { UserTemplateComponent } from './components/template/user-template/user-template.component';
+import { AdminTemplateComponent } from './components/template/admin-template/admin-template.component';
 
 export const routes: Routes = [
-    { path: 'estados', component: EstadoListComponent, title: 'Lista de Estados'},
-    { path: 'estados/new', component: EstadoFormComponent, title: 'Novo Estado'},
-    { path: 'estados/edit/:id', component: EstadoFormComponent, resolve: {estado: estadoResolver}},
+    { 
+        path: '', 
+        component: UserTemplateComponent, 
+        title: 'e-commerce',
+        children: [
+            {path: '', pathMatch: 'full', redirectTo: 'produtos'},
 
-    { path: 'municipios', component: MunicipioListComponent, title: 'Lista de Municipios'},
-    { path: 'municipios/new', component: MunicipioFormComponent, title: 'Novo Municipio'},
-    { path: 'municipios/edit/:id', component: MunicipioFormComponent, resolve: {municipio: municipioResolver}},
+            { path: 'produtos', component: ConsultaCardListComponent, title: 'Produtos à Venda'},
+            { path: 'login', component: LoginComponent, title: 'Login'},
+            { path: 'carrinho', component: CarrinhoComponent, title: 'Carrinho de pedidos'},
+        ]
 
-    { path: 'pacientes', component: PacienteListComponent, title: 'Lista de Pacientes'},
-    { path: 'pacientes/new', component: PacienteFormComponent, title: 'Novo Paciente'},
-    { path: 'pacientes/edit/:id', component: PacienteFormComponent, resolve: {paciente: pacienteResolver}},
+    },
+    { 
+        path: 'admin', 
+        component: AdminTemplateComponent, 
+        title: 'e-commerce',
+        children: [
+            {path: '', pathMatch: 'full', redirectTo: 'estados'},
+        
+            { path: 'estados', component: EstadoListComponent, title: 'Lista de Estados'},
+            { path: 'estados/new', component: EstadoFormComponent, title: 'Novo Estado'},
+            { path: 'estados/edit/:id', component: EstadoFormComponent, resolve: {estado: estadoResolver}},
+        
+            { path: 'municipios', component: MunicipioListComponent, title: 'Lista de Municipios'},
+            { path: 'municipios/new', component: MunicipioFormComponent, title: 'Novo Municipio'},
+            { path: 'municipios/edit/:id', component: MunicipioFormComponent, resolve: {municipio: municipioResolver}},
+        
+            { path: 'pacientes', component: PacienteListComponent, title: 'Lista de Pacientes'},
+            { path: 'pacientes/new', component: PacienteFormComponent, title: 'Novo Paciente'},
+            { path: 'pacientes/edit/:id', component: PacienteFormComponent, resolve: {paciente: pacienteResolver}},
+        ]
 
-    { path: 'login', component: LoginComponent, title: 'Login'},
-
-    { path: 'produtos', component: ConsultaCardListComponent, title: 'Produtos à Venda'},
-
-    { path: 'carrinho', component: CarrinhoComponent, title: 'Carrinho de pedidos'},
+    },
     
 ];

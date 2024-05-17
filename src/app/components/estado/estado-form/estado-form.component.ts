@@ -26,7 +26,8 @@ export class EstadoFormComponent {
   constructor(private formBuilder: FormBuilder,
     private estadoService: EstadoService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private location: Location) {
 
     const estado: Estado = activatedRoute.snapshot.data['estado'];
 
@@ -42,6 +43,10 @@ export class EstadoFormComponent {
 
   }
 
+  voltarPagina() {
+    this.location.back();
+  }
+
   salvar() {
     // marca todos os campos do formulario como 'touched'
     this.formGroup.markAllAsTouched();
@@ -55,7 +60,7 @@ export class EstadoFormComponent {
 
       // realiza a operacao e trata a resposta.
       operacao.subscribe({
-        next: () => this.router.navigateByUrl('/estados'),
+        next: () => this.voltarPagina(),
         error: (error: HttpErrorResponse) => {
           console.log('Erro ao salvar' + JSON.stringify(error));
           this.tratarErros(error);
@@ -92,7 +97,7 @@ export class EstadoFormComponent {
       if (estado.id != null) {
         this.estadoService.delete(estado).subscribe({
           next: () => {
-            this.router.navigateByUrl('/estados');
+            this.voltarPagina();
           },
           error: (err) => {
             console.log('Erro ao Excluir' + JSON.stringify(err));

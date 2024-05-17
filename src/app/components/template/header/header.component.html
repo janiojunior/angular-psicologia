@@ -2,14 +2,14 @@
     <button (click)="clickMenu()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
     </button>
-    <span>Artes Marciais - Faixas</span>
+    <span>Psicologia</span>
 
     <span class="example-spacer"></span>
     <button routerLink="/carrinho" mat-icon-button class="demo-section example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon [matBadge]="qtdItensCarrinho"  matBadgeColor="warn" matBadgePosition="after" matBadgeOverlap="false">shopping_cart</mat-icon>
     </button>
 
-    <button value="blah" mat-icon-button (click)="deslogar()">
+    <button  mat-icon-button (click)="deslogar()">
       <mat-icon>exit_to_app</mat-icon>
     </button>
     <span>{{usuarioLogado?.nome}}</span>
