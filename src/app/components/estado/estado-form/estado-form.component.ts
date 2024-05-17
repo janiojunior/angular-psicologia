@@ -1,16 +1,15 @@
+import { Location, NgIf } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { EstadoService } from '../../../services/estado.service';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { NgIf } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Estado } from '../../../models/estado.model';
-import { EmptyError, Observable } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
+import { EstadoService } from '../../../services/estado.service';
 
 @Component({
   selector: 'app-estado-form',

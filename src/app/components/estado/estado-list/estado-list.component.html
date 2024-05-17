@@ -1,7 +1,7 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <div class="flex-container">
     <span class="toolbar-title">Controle de Estados</span>
-    <button mat-fab color="accent" routerLink="/estados/new">
+    <button mat-fab color="accent" routerLink="./new">
       <mat-icon>add</mat-icon>
     </button>
   </div>
@@ -48,7 +48,7 @@
   </table>
 
   <mat-paginator 
-    [pageSizeOptions]="[2, 4, 8, 16]" 
+    [pageSizeOptions]="[10, 20, 30, 40]" 
     [pageSize]="pageSize" 
     [length]="totalRecords"
     (page)="paginar($event)">
