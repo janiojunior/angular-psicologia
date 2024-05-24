@@ -13,6 +13,9 @@ import { ConsultaCardListComponent } from './components/consulta-card-list/consu
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { UserTemplateComponent } from './components/template/user-template/user-template.component';
 import { AdminTemplateComponent } from './components/template/admin-template/admin-template.component';
+import { ConsultaFormComponent } from './components/consulta/consulta-form/consulta-form.component';
+import { ConsultaListComponent } from './components/consulta/consulta-list/consulta-list.component';
+import { consultaResolver } from './components/consulta/resolver/consulta-resolver';
 
 export const routes: Routes = [
     { 
@@ -46,6 +49,10 @@ export const routes: Routes = [
             { path: 'pacientes', component: PacienteListComponent, title: 'Lista de Pacientes'},
             { path: 'pacientes/new', component: PacienteFormComponent, title: 'Novo Paciente'},
             { path: 'pacientes/edit/:id', component: PacienteFormComponent, resolve: {paciente: pacienteResolver}},
+
+            { path: 'consultas', component: ConsultaListComponent, title: 'Lista de Consultas'},
+            { path: 'consultas/new', component: ConsultaFormComponent, title: 'Nova Consulta'},
+            { path: 'consultas/edit/:id', component: ConsultaFormComponent, resolve: {consulta: consultaResolver}},
         ]
 
     },
