@@ -16,6 +16,7 @@ import { AdminTemplateComponent } from './components/template/admin-template/adm
 import { ConsultaFormComponent } from './components/consulta/consulta-form/consulta-form.component';
 import { ConsultaListComponent } from './components/consulta/consulta-list/consulta-list.component';
 import { consultaResolver } from './components/consulta/resolver/consulta-resolver';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
     { 
@@ -25,7 +26,7 @@ export const routes: Routes = [
         children: [
             {path: '', pathMatch: 'full', redirectTo: 'produtos'},
 
-            { path: 'produtos', component: ConsultaCardListComponent, title: 'Produtos à Venda'},
+            { path: 'produtos', component: ConsultaCardListComponent, title: 'Produtos à Venda' },
             { path: 'login', component: LoginComponent, title: 'Login'},
             { path: 'carrinho', component: CarrinhoComponent, title: 'Carrinho de pedidos'},
         ]
@@ -39,7 +40,7 @@ export const routes: Routes = [
             {path: '', pathMatch: 'full', redirectTo: 'estados'},
         
             { path: 'estados', component: EstadoListComponent, title: 'Lista de Estados'},
-            { path: 'estados/new', component: EstadoFormComponent, title: 'Novo Estado'},
+            { path: 'estados/new', component: EstadoFormComponent, title: 'Novo Estado', canActivate: [authGuard]},
             { path: 'estados/edit/:id', component: EstadoFormComponent, resolve: {estado: estadoResolver}},
         
             { path: 'municipios', component: MunicipioListComponent, title: 'Lista de Municipios'},

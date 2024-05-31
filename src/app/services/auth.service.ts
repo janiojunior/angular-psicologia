@@ -90,4 +90,18 @@ export class AuthService {
     // npm install @auth0/angular-jwt
   }
 
+  // isTokenExpired(): boolean {
+  //   const token = localStorage.getItem('token');
+  //   if (!token) {
+  //     return true;
+  //   }
+    
+  //   try {
+  //     return this.jwtHelper.isTokenExpired(token);
+  //   } catch (error) {
+  //     console.error('Token inválido:', error);
+  //     return true; 
+  //   }
+  // }
+
 }
