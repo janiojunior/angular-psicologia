@@ -83,25 +83,27 @@ export class AuthService {
     this.usuarioLogadoSubject.next(null);
   }
 
+  // isTokenExpired(): boolean {
+  //   const token = this.getToken();
+  //   // Verifica se o token é nulo ou está expirado
+  //   return !token || this.jwtHelper.isTokenExpired(token);
+  //   // npm install @auth0/angular-jwt
+  // }
+
   isTokenExpired(): boolean {
     const token = this.getToken();
-    // Verifica se o token é nulo ou está expirado
-    return !token || this.jwtHelper.isTokenExpired(token);
-    // npm install @auth0/angular-jwt
-  }
-
-  // isTokenExpired(): boolean {
-  //   const token = localStorage.getItem('token');
-  //   if (!token) {
-  //     return true;
-  //   }
+    console.error('token: ' + token);
+    if (!token) {
+      return true;
+    }
     
-  //   try {
-  //     return this.jwtHelper.isTokenExpired(token);
-  //   } catch (error) {
-  //     console.error('Token inválido:', error);
-  //     return true; 
-  //   }
-  // }
+    try {
+      console.error('jwtHelper: ' + this.jwtHelper.isTokenExpired(token));
+      return this.jwtHelper.isTokenExpired(token);
+    } catch (error) {
+      console.error('Token inválido:', error);
+      return true; 
+    }
+  }
 
 }
